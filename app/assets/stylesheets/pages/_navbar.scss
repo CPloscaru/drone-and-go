@@ -1,0 +1,41 @@
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+}
+
+.navbar-brand img {
+  height: 50px;
+  border-radius: 15px;
+}
+
+.nav-link {
+  color: #333333;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.btn-outline-dark {
+  color: #333333;
+  border-color: #333333;
+}
+
+.btn-outline-dark:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.form-control {
+  border-radius: 2px;
+}
+
+.ms-auto {
+  margin-left: auto;
+}
+
+.ms-3 {
+  margin-left: 1rem;
+}
