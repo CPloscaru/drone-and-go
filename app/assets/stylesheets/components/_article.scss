@@ -1,0 +1,47 @@
+/* Style de base pour la liste d'articles */
+.article-list {
+  display: flex; /* Utilise Flexbox pour aligner les articles */
+  flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+  gap: 20px; /* Espacement entre les articles */
+  padding: 20px; /* Espacement intérieur */
+}
+
+/* Style pour chaque article */
+.article {
+  flex: 1 1 calc(25% - 20px); /* 4 articles par ligne (25% de largeur) */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+  border: 1px solid #ddd; /* Bordure légère */
+  border-radius: 8px; /* Coins arrondis */
+  overflow: hidden; /* Cache tout contenu débordant */
+  text-align: center; /* Centre le texte */
+  background-color: #f9f9f9; /* Couleur de fond */
+  transition: transform 0.3s ease; /* Animation au survol */
+}
+
+/* Effet au survol */
+.article:hover {
+  transform: translateY(-5px); /* Légère élévation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+}
+
+/* Style de l'image */
+
+.article img {
+  width: 100%; /* Largeur max */
+  height: auto; /* Hauteur auto */
+  display: block; /* Supprime l'espace sous l'image */
+}
+
+/* Style du titre */
+.article h3 {
+  margin: 15px 0 10px; /* Espacement titre */
+  font-size: 18px;
+  color: #333;
+}
+
+/* Description */
+.article p {
+  margin: 0 15px 15px; /* Espacement description */
+  font-size: 14px;
+  color: #666;
+}
