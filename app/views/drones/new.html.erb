@@ -1,2 +1,17 @@
-<h1>Drones#new</h1>
-<p>Find me in app/views/drones/new.html.erb</p>
+<div class="container">
+  <h1>Register a new drone here!</h1>
+  <%= simple_form_for(@drone) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :category do %>
+      <%= f.select :category, Drone::CATEGORIES%>
+    <% end %>
+    <%= f.input :price_per_day %>
+    <%= f.input :price_for_lease %>
+    <%= f.input :autonomy_rating %>
+    <%= f.input :stability_rating %>
+    <%= f.input :camera_quality_rating %>
+    <%= f.input :range_rating %>
+    <%= f.submit "Add your drone to rent" %>
+  <% end %>
+</div>

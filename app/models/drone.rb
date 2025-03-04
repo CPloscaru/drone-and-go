@@ -2,7 +2,7 @@ class Drone < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: :"owner_id", required: true
   has_many :drone_reviews
 
-  CATEGORIES = %w(Type 1 Type2 Type3)
+  CATEGORIES = %w(Type1 Type2 Type3)
   validates_associated :owner
   validates :description, length: { minimum: 12}
   validates :name, presence: true
