@@ -1,5 +1,120 @@
-<h1>Drones#index</h1>
-<p>Find me in app/views/drones/index.html.erb</p>
+<!-- Logo -->
+<body>
 
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+  <!-- NavBar -->
+<div style="height: 20px;"></div>
+<div style="padding: 20px;">
+
+<!-- Formulaire de filtrage par catégorie -->
+<!-- Buttons -->
+<link rel="stylesheet" type="text/css" href="index.scss">
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('Autonomy')"> Autonomy</button>
+  <button class="btn" onclick="filterSelection('Stability')"> Stability</button>
+  <button class="btn" onclick="filterSelection('Range')"> Range</button>
+  <button class="btn" onclick="filterSelection('????')"> Price min - Price Max</button>
+         <!-- Barre de recherche si besoin -->
+  <input type="text" placeholder="Search..">
+</div>
+</div>
+              <!-- Espacement -->
+<div style="height: 20px;"></div>
+<div style="padding: 20px;">
+
+<div class="card-product">
+ <!-- <img src="https://www.sport-passion.fr/comparatifs/drones-sport.php" /> -->
+  </div>
+</div>
+</body>
+<div class="article-list">
+  <div class="article">
+    <img src="https://i.ibb.co/mCDqqFPv/phantom-pro-v2.webp" alt="Article 1">
+    <h3>Titre de l'article 1</h3>
+    <p>Description courte de l'article 1 & info importante tels que Price per day etc</p>
+     <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 3.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 2.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+  </div>
+  <div class="article">
+    <img src="https://i.ibb.co/ccMDgf4v/s-l1600.webp" alt="Article 2">
+    <h3>Titre de l'article 2</h3>
+    <p>Description courte de l'article 2.</p>
+     <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+  </div>
+  <div class="article">
+    <img src="https://i.ibb.co/v4yxSbTK/s-l1600-1.webp" alt="Article 3">
+    <h3>Titre de l'article 3</h3>
+    <p>Description courte de l'article 3.</p>
+    <li style="text-align: left">Autonomy:
+    <% 3.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 2.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+  </div>
+  <div class="article">
+    <img src="https://i.ibb.co/SXq3T7DZ/s-l1600-3.webp"  alt="Article 4">
+    <h3>Drone professionnel E88</h3>
+    <p>E88 caméra grand angle HD 4k, WiFi fpv, maintien en hauteur</p>
+    <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+  </div>
+    <!-- Deuxième ligne d'articles -->
+    <div class="article">
+      <img src="https://i.ibb.co/RxZrRpk/250104-1757-location-drone-src.jpg" alt="Article 5">
+      <h3>Titre de l'article 5</h3>
+      <p>Description courte de l'article 5.</p>
+      <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    </div>
+    <div class="article">
+      <img src="https://i.ibb.co/Q7MtnDy6/452250-241009-1349-location-drone-src.png" alt="Article 6">
+      <h3>Titre de l'article 6</h3>
+      <p>Description courte de l'article 6.</p>
+      <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    </div>
+    <div class="article">
+      <img src="https://i.ibb.co/xthZz1P5/325142-240806-1558-location-drone-src.jpg" alt="Article 7">
+      <h3>Titre de l'article 7</h3>
+      <p>Description courte de l'article 7.</p>
+      <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    </div>
+    <div class="article">
+      <img src="https://i.ibb.co/fVT07rHk/449759-240716-1519-location-autre-src.jpg" alt="Article 8">
+      <h3>Titre de l'article 8</h3>
+      <p>Description courte de l'article 8.</p>
+      <li style="text-align: left">Autonomy:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    <li style="text-align: left">Stability:
+    <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
+    <% 1.times do %> <i class="fa-regular fa-star"></i><% end %></li>
+    </div>
+</div>
