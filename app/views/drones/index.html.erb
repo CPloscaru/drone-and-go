@@ -1,2 +1,5 @@
 <h1>Drones#index</h1>
 <p>Find me in app/views/drones/index.html.erb</p>
+
+<%= link_to "Sign up", new_user_registration_path %>
+<%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>

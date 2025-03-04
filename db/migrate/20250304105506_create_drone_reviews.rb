@@ -4,7 +4,7 @@ class CreateDroneReviews < ActiveRecord::Migration[7.1]
       t.float :rating
       t.text :comment
       t.references :drone, null: false, foreign_key: true
-
+      
       t.timestamps
     end
   end

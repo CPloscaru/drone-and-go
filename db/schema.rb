@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_04_105646) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_04_113727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,15 +26,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_04_105646) do
     t.index ["drone_id"], name: "index_bookings_on_drone_id"
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "drone_reviews", force: :cascade do |t|
     t.float "rating"
     t.text "comment"
@@ -45,9 +36,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_04_105646) do
   end
 
   create_table "drones", force: :cascade do |t|
+    t.bigint "owner_id", null: false
     t.string "name"
     t.text "description"
-    t.string "type"
+    t.string "category"
     t.integer "price_per_day"
     t.integer "price_for_lease"
     t.float "autonomy_rating"
@@ -56,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_04_105646) do
     t.float "range_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_drones_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,11 +59,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_04_105646) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "drones"
+  add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "drone_reviews", "drones"
+  add_foreign_key "drones", "users", column: "owner_id"
 end
