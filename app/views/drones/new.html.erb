@@ -1,17 +1,35 @@
-<div class="container">
-  <h1>Register a new drone here!</h1>
+<div class="container mt-5">
+  <h1 class="font-weight-bold mb-3">Register a new drone here!</h1>
   <%= simple_form_for(@drone) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :category do %>
+    <div class="form-floating mb-3">
+      <%= f.input :name,
+                  label: "Please give a name to your drone",
+                  class: "form-control"
+      %>
+    </div>
+    <%# ,
+    input_html: {
+      "data-tooltip" => true,
+      "data-placement" => "top",
+      :title => "" } %>
+    <%= f.input :description, label: "Please describe your drone", input_html: { rows: 5} %>
+    <%= f.input :category, label: "Drone Category", class: "form-control" do %>
       <%= f.select :category, Drone::CATEGORIES%>
     <% end %>
-    <%= f.input :price_per_day %>
-    <%= f.input :price_for_lease %>
-    <%= f.input :autonomy_rating %>
-    <%= f.input :stability_rating %>
-    <%= f.input :camera_quality_rating %>
-    <%= f.input :range_rating %>
-    <%= f.submit "Add your drone to rent" %>
+    <div class="row">
+      <div class="col">
+        <%= f.input :price_per_day, label: "Price per day ($)", input_html: { min: 0 } %>
+        <%= f.input :price_for_lease, label: "Deposit ($) (Optional)", input_html: { min: 0 } %>
+      </div>
+      <div class="col">
+        <%= f.input :autonomy_rating, label: "Autonomy of your drone", collection: 1..5 %>
+        <%= f.input :stability_rating, label: "Stability of your drone", collection: 1..5 %>
+      </div>
+      <div class="col">
+        <%= f.input :camera_quality_rating, label: "Camera Quality of your drone", collection: 1..5 %>
+        <%= f.input :range_rating, label: "Range of your drone", collection: 1..5 %>
+      </div>
+      <%= f.submit "Add your drone to rent", class: "btn btn-outline-success" %>
+    </div>
   <% end %>
 </div>
