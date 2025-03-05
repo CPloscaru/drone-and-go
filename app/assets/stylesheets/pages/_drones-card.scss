@@ -1,0 +1,46 @@
+.drone-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.drone {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.drone img {
+  border-radius: 10px;
+  max-width: 80%;
+  height: auto;
+}
+
+.drone h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.drone p {
+  font-size: 1em;
+  color: #555;
+}
+
+.drone .btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.drone .btn:hover {
+  background-color: #0056b3;
+}
