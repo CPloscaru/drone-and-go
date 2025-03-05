@@ -1,128 +1,153 @@
-<html>
-  <head>
-    <title>SHOW DU DRONE</title>
-    <meta name="description" content="Page description. No longer than 155 characters.">
-    <meta charset="utf-8">
-  </head>
-  <body>
 
-    <div class="container">
-      <div class="row justify-content-center">
+<div class="container">
+  <div class="row justify-content-center">
 
-        <div class="col-8">
-          <div class="card" >
-            <%= image_tag "drone.png" %>
-            <div class="card-body">
-              <h5 class="card-title">DRONE V1</h5>
-              <p class="card-text">Drone surpuissant alliant rapidité et fluidité, idéal pour débutant.</p>
+    <div class="col-8">
+      <div class="card" >
+        <%= image_tag "drone.png" %>
+        <div class="card-body">
+          <h5 class="card-title">Drone Name : <%= @drone.name %></h5>
+          <p class="card-text">Description : <%= @drone.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <div style="text-align: center;">
+              <h5 class="card-title">Price per day: <%= @drone.price_per_day  %>€</h5>
+              <p class="card-text"><%= @drone.category %></p>
             </div>
           </div>
-        </div>
-
-        <div class="col-4">
-          <div class="card" style="margin-right: 0; padding: 0;">
-            <div class="card-header">
-              <div style="text-align: center;">
-                <h5 class="card-title">Price per day</h5>
-                <p class="card-text">Drone surpuissant alliant rapidité et fluidité, idéal pour débutant.</p>
-              </div>
 
 
-            <div class="card-body">
-              <ul>
-                <li style="text-align: left">Autonomy:
-                  <% 2.times do %> <i class="fa-solid fa-star"></i><% end %>
-                  <% 3.times do %> <i class="fa-regular fa-star"></i><% end %>
-                </li>
-              </ul>
-            </div>
-
-            <div class="card-body">
-              <ul>
-                <li style="text-align: left">Range:
-                  <% 1.times do %> <i class="fa-solid fa-star"></i><% end %>
-                  <% 4.times do %> <i class="fa-regular fa-star"></i><% end %>
-                </li>
-              </ul>
-            </div>
-
-            <div class="card-body">
-              <ul>
-                <li style="text-align: left">Stability:
-                  <% 4.times do %> <i class="fa-solid fa-star"></i><% end %>
-                  <% 1.times do %> <i class="fa-regular fa-star"></i><% end %>
-                </li>
-              </ul>
-            </div>
+          <div class="card-body">
+            <ul>
+              <li style="text-align: left">Autonomy: <span class=“star”><%=display_rating(@drone.autonomy_rating)%>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Carte loc début -->
-
-        <div class="col-12">
-          <div class="card" >
-            <div class="card-header">
-              <h5>Début</h5>
-            </div>
-            <div class="card-body">
-              <p>*date*</p>
-            </div>
+          <div class="card-body">
+            <ul>
+              <li style="text-align: left">Stability: <span class=“star”><%=display_rating(@drone.stability_rating)%>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Carte loc fin -->
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h5>Fin</h5>
-            </div>
-            <div class="card-body">
-              <p>*date*</p>
-            </div>
-            <a href="#" class="btn btn-primary" style="text-align: center">BOOK NOW !!</a>
+          <div class="card-body">
+            <ul>
+              <li style="text-align: left">Camera Quality: <span class=“star”><%=display_rating(@drone.camera_quality_rating)%>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-body">
+            <ul>
+              <li style="text-align: left">Range: <span class=“star”><%=display_rating(@drone.range_rating)%>
+              </li>
+            </ul>
           </div>
 
         </div>
-</div>
+      </div>
+      <div class="col-12">
+        <div class="card" >
+          <div class="card-header">
+            <h5>Réservation</h5>
+            <!-- CALENDRIER -->
+            <%= simple_form_for(@booking, method: :post, url:drone_bookings_path(@drone)) do |f| %>
+
+                <%= f.input :starting_date,  as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+                <%= f.input :ending_date,  as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+                <%= f.submit "Book Now", class:"btn btn-outline-success" %>
+            <% end %>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte loc début -->
+
+  </div>
 
 
-      </div> <!-- Fin de la row -->
+  <div class="row mt-3  g-2">
+
+    <!-- Fin de la row -->
      <!-- Fin de la container -->
-    <div class="d-flex">
-    <div class="col-sm-6" >
-      <div class="card">
-        <div class="card-header">
-          <h5>USER</h5>
-        </div>
-        <div class="card-body">
-          <p>Commentaire</p>
-        </div>
-      </div>
-    </div>
-
-        <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header">
-          <h5>USER</h5>
-        </div>
-        <div class="card-body">
-          <p>Commentaire</p>
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header">
-          <h5>USER</h5>
-        </div>
-        <div class="card-body">
-          <p>Commentaire</p>
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3" >
+        <div class="card">
+          <div class="card-header">
+            <h5>USER</h5>
+          </div>
+          <div class="card-body">
+            <p>Commentaire</p>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
 </div>
-  </body>
-</html>

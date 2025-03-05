@@ -1,5 +1,6 @@
 class DronesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  
   def index
     @drones = Drone.all
     if params[:sort_by]
@@ -32,6 +33,7 @@ class DronesController < ApplicationController
 
   def show
     @drone = Drone.find(params[:id])
+    @booking = Booking.new
   end
 
   private
@@ -47,5 +49,4 @@ class DronesController < ApplicationController
                                   :camera_quality_rating,
                                   :range_rating)
   end
-
 end
