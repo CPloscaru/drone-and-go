@@ -14,7 +14,7 @@ class DronesController < ApplicationController
       when "price_for_lease"
         @drones = @drones.order(price_for_lease: :asc)
       end
-    end
+    
   end
 
   def new
