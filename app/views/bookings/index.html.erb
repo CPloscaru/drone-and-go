@@ -1,2 +1,58 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+  <div class="container">
+    <h1><%= @user.name %>'s bookings</h1>
+    <p>Please find below all the reservation you made</p>
+    <div class="table-responsive mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Starting Date</th>
+            <th scope="col">Last Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total (euros)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer_bookings.each do |booking| %>
+            <tr>
+              <th scope="row"><%= booking.id %></th>
+              <td><%= booking.starting_date %></td>
+              <td><%= booking.ending_date %></td>
+              <td>Pending</td>
+              <td><%= booking.total_price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container">
+    <h1><%= @user.name %>'s drones rent tracking</h1>
+    <p>Please find below all the reservation made for yours drones</p>
+    <div class="table-responsive mt-3">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Starting Date</th>
+            <th scope="col">Last Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total ( euros)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @owner_bookings.each do |booking| %>
+            <tr>
+              <th scope="row"><%= booking.id %></th>
+              <td><%= booking.starting_date %></td>
+              <td><%= booking.ending_date %></td>
+              <td>Pending</td>
+              <td><%= booking.total_price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
