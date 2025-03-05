@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  def index # test
+  def index
     @user = User.find(current_user.id)
     @customer_bookings = Booking.where(customer_id: @user.id)
     @owner_bookings = Booking.all.select do |booking|
@@ -11,12 +11,15 @@ class BookingsController < ApplicationController
     @drone = Drone.find(params[:drone_id])
     @user = User.find(current_user.id)
     @booking = Booking.new(booking_params)
+    @booking.total_price = 350
     @booking.drone = @drone
     @booking.customer = @user
     if @booking.save
       redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = @booking.errors.full_messages
+      redirect_to drone_path(@drone)
+      #render "bookings/form", status: :unprocessable_entity
     end
   end
 

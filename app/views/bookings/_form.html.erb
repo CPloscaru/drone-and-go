@@ -1,0 +1,10 @@
+<%= simple_form_for(@booking, method: :post, url:drone_bookings_path(@drone)) do |f| %>
+
+    <%= f.input :starting_date,  as: :string,
+input_html: { data: { controller: "datepicker" } } %>
+
+    <%= f.input :ending_date,  as: :string,
+input_html: { data: { controller: "datepicker" } } %>
+
+    <%= f.submit "Book Now", class:"btn btn-outline-success" %>
+<% end %>
