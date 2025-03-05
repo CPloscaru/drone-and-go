@@ -4,8 +4,11 @@ class DronesController < ApplicationController
   end
 
   def new
+
   end
 
   def show
+    @drone = Drone.find(params[:id])
+    @booking = Booking.new
   end
 end
