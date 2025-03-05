@@ -26,12 +26,21 @@
       <img src="https://i.ibb.co/fVT07rHk/449759-240716-1519-location-autre-src.jpg" alt="<%= drone.name %>">
       <h3><%= drone.name %></h3>
       <p><%= drone.description %></p>
+<<<<<<< HEAD
+     <p>Stability rating:<span class="star"><%=display_rating(drone.stability_rating)%></p>
+     <p>Range rating:<span class="star"><%=display_rating(drone.range_rating)%></p>
+     <p>Camera quality rating:<span class="star"> <%=display_rating(drone.camera_quality_rating)%></p>
+     <p>Price per day: <%= drone.price_per_day%></p>
+     <strong><p>Price for lease: <%=drone.price_for_lease%></strong></p>
+     <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
+=======
      <p>Stability rating: <span class="star"><%=display_rating(drone.stability_rating)%>
      <p>Range rating: <span class="star"><%=display_rating(drone.range_rating)%>
      <p>Camera quality rating: <span class="star"> <%=display_rating(drone.camera_quality_rating)%>
      <p>Autonomy rating: <span class="star"> <%=display_rating(drone.autonomy_rating)%>
      <p>Price per day: <%= drone.price_per_day%>
      <strong><p>Price for lease: <%=drone.price_for_lease%></strong>
+>>>>>>> master
     </div>
   <% end %>
 </div>
