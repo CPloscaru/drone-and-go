@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/drones">
       <img src="https://i.postimg.cc/q7Mq5XxT/minimalist-black-and-white-logo-with-a-drone-and-a-solid-background.jpg" alt="Drone'N'GO">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,19 +9,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/drones">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add a drone</a>
+          <a class="nav-link" href="/drones/new">Add a drone</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">My bookings</a></li>
+            <li><a class="dropdown-item" href="/bookings">My bookings</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a></li>
+            <li><a class="dropdown-item" href="/users/sign_in">Sign in</a></li>
+            <li><a class="dropdown-item" data-turbo-method="delete" href="/users/sign_out">Sign out</a></li>
           </ul>
         </li>
       </ul>
