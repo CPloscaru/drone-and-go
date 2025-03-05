@@ -1,6 +1,6 @@
 class DronesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  
+
   def index
     @drones = Drone.all
     if params[:sort_by]
@@ -18,7 +18,7 @@ class DronesController < ApplicationController
       when "price_per_day"
         @drones = @drones.order(price_per_day: :asc)
       end
-    
+    end
   end
 
   def new
