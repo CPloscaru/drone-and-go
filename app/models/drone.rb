@@ -24,3 +24,8 @@ class Drone < ApplicationRecord
   validates :camera_quality_rating, numericality: {greater_than: 0, less_than_or_equal_to:5}
   validates :range_rating, numericality:{greater_than: 0, less_than_or_equal_to:5}
 end
+def display_rating(rating)
+  full_star = "★"
+  empty_star = "☆"
+  full_star * rating + empty_star * (5 - rating)
+end
