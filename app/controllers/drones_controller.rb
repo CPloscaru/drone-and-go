@@ -10,8 +10,12 @@ class DronesController < ApplicationController
         @drones = @drones.order(stability_rating: :desc)
       when "range_rating"
         @drones = @drones.order(range_rating: :desc)
+      when "camera_quality_rating"
+        @drones = @drones.order(camera_quality_rating: :desc)
       when "price_for_lease"
         @drones = @drones.order(price_for_lease: :asc)
+      when "price_per_day"
+        @drones = @drones.order(price_per_day: :asc)
       end
     end
   end
