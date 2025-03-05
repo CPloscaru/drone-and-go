@@ -7,9 +7,6 @@
 
 
 <!-- Buttons -->
-<link rel="stylesheet" type="text/css" href="index.scss">
-
-<!-- Button de filtrage par catégorie -->
 <div id="myBtnContainer">
   <%= link_to "Show all", drones_path, class: "btn active" %>
   <%= link_to "Autonomy rating", drones_path(sort_by: "autonomy_rating"), class: "btn" %>
