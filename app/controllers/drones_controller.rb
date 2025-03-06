@@ -49,10 +49,11 @@ class DronesController < ApplicationController
                                   :description,
                                   :category,
                                   :price_per_day,
-                                  :price_for_lease,
-                                  :autonomy_rating,
-                                  :stability_rating,
-                                  :camera_quality_rating,
-                                  :range_rating)
+                                  :flight_time,
+                                  :max_altitude,
+                                  :max_wind_resistance,
+                                  :max_resolution,
+                                  :max_flight_distance,
+                                  :photo)
   end
 end

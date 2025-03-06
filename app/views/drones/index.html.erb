@@ -23,7 +23,12 @@
 <div class="drone-list">
   <% @drones.each do |drone| %>
     <div class="drone">
-      <img src="https://i.ibb.co/fVT07rHk/449759-240716-1519-location-autre-src.jpg" alt="<%= drone.name %>">
+      <% if drone.photo.attached? %>
+        <img src=<%= drone.photo.url %>  alt= <%= drone.photo.name %> >
+      <% else %>
+        <img src=<%= drone.photo_url %>  alt= <%= drone.photo.name %> >
+      <% end %>
+      <%# <%= cl_image_tag drone.photo.key, height: 300, width: 400, crop: :fill %>
       <h3><%= drone.name %></h3>
       <p><%= drone.description %></p>
      <p>Flight Time: <%= drone.flight_time %>min</p>
