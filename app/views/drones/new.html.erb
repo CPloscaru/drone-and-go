@@ -13,13 +13,9 @@
       "data-placement" => "top",
       :title => "" } %>
     <%= f.input :description, label: "Please describe your drone", input_html: { rows: 5} %>
-    <%= f.input :category, label: "Drone Category", class: "form-control" do %>
-      <%= f.select :category, Drone::CATEGORIES%>
-    <% end %>
     <div class="row">
       <div class="col">
         <%= f.input :price_per_day, label: "Price per day ($)", input_html: { min: 0 } %>
-        <%= f.input :price_for_lease, label: "Deposit ($) (Optional)", input_html: { min: 0 } %>
       </div>
       <div class="col">
         <%= f.input :autonomy_rating, label: "Autonomy of your drone", collection: 1..5 %>

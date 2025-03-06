@@ -18,17 +18,16 @@ User.create!(email: "calinp@gmail.com", password: "123456", name: "Calin", last_
 puts "Users created"
 
 puts "Create 10 drones..."
-10.times do |_|
+11.times do |_|
   drone = Drone.new(
-    name: Faker::Fantasy::Tolkien.character,
-    category: Drone::CATEGORIES.sample,
+    name: Faker::Drone.name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: rand(30..125),
-    price_for_lease: rand(300..500),
-    autonomy_rating: rand(0.1..5.0).round(2),
-    stability_rating: rand(0.1..5.0).round(2),
-    camera_quality_rating: rand(0.1..5.0).round(2),
-    range_rating: rand(0.1..5.0).round(2)
+    flight_time: Faker::Drone.flight_time,
+    max_altitude: Faker::Drone.max_altitude,
+    max_wind_resistance: Faker::Drone.max_wind_resistance,
+    max_resolution: Faker::Drone.max_resolution,
+    max_flight_distance:Faker::Drone.max_flight_distance
   )
   drone.owner = User.all.sample
   drone.save
@@ -37,15 +36,16 @@ end
 puts "Created #{Drone.all.count} drones finished"
 
 puts "Created a drone for last user named : '#{User.last.name}'"
-drone = Drone.new(name: "AC-130",
-            category: "Type 1",
-            description: Faker::Lorem.paragraph(sentence_count: 3),
-            price_per_day: 35.0,
-            price_for_lease: 300.0,
-            autonomy_rating:3,
-            stability_rating: 4,
-            camera_quality_rating: 2,
-            range_rating: 5)
+drone = Drone.new(
+  name: Faker::Drone.name,
+  description: Faker::Lorem.paragraph(sentence_count: 3),
+  price_per_day: rand(30..125),
+  flight_time: Faker::Drone.flight_time,
+  max_altitude: Faker::Drone.max_altitude,
+  max_wind_resistance: Faker::Drone.max_wind_resistance,
+  max_resolution: Faker::Drone.max_resolution,
+  max_flight_distance:Faker::Drone.max_flight_distance
+)
 
 drone.owner = User.last
 drone.save
@@ -53,7 +53,7 @@ drone.save
 puts "Created 10 booking for last user named : '#{User.last.name}'"
 10.times do |_|
   puts "Created a new booking"
-  month = rand(1..12)
+  month = rand(4..12)
   day = rand(1..25)
   booking = Booking.new(starting_date: "2025/#{month}/#{day}",
               ending_date: "2025/#{month}/#{day+4}",

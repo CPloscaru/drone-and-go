@@ -5,16 +5,16 @@ class DronesController < ApplicationController
     @drones = Drone.all
     if params[:sort_by]
       case params[:sort_by]
-      when "autonomy_rating"
-        @drones = @drones.order(autonomy_rating: :desc)
-      when "stability_rating"
-        @drones = @drones.order(stability_rating: :desc)
-      when "range_rating"
-        @drones = @drones.order(range_rating: :desc)
-      when "camera_quality_rating"
-        @drones = @drones.order(camera_quality_rating: :desc)
-      when "price_for_lease"
-        @drones = @drones.order(price_for_lease: :asc)
+      when "flight_time"
+        @drones = @drones.order(flight_time: :asc)
+      when "max_altitude"
+        @drones = @drones.order(max_altitude: :asc)
+      when "max_wind_resistance"
+        @drones = @drones.order(max_wind_resistance: :asc)
+      when "max_resolution"
+        @drones = @drones.order(max_resolution: :asc)
+      when "max_flight_distance"
+        @drones = @drones.order(max_flight_distance: :asc)
       when "price_per_day"
         @drones = @drones.order(price_per_day: :asc)
       end

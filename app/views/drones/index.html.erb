@@ -8,11 +8,11 @@
 
 <!-- Buttons -->
 <div id="myBtnContainer">
-  <%= link_to "Autonomy rating", drones_path(sort_by: "autonomy_rating"), class: "btn" %>
-  <%= link_to "Stability rating", drones_path(sort_by: "stability_rating"), class: "btn" %>
-  <%= link_to "Range rating", drones_path(sort_by: "range_rating"), class: "btn" %>
-  <%= link_to "Camera rating", drones_path(sort_by: "camera_quality_rating"), class: "btn" %>
-  <%= link_to "Price for lease", drones_path(sort_by: "price_for_lease"), class: "btn" %> <!-- filtrer prix croissant -->
+  <%= link_to "Flight Time", drones_path(sort_by: "flight_time"), class: "btn" %>
+  <%= link_to "Max Altitude", drones_path(sort_by: "max_altitude"), class: "btn" %>
+  <%= link_to "Max Wind Resistance", drones_path(sort_by: "max_wind_resistance"), class: "btn" %>
+  <%= link_to "Max Camera Resolution", drones_path(sort_by: "max_resolution"), class: "btn" %>
+  <%= link_to "Max Flight Distance", drones_path(sort_by: "max_flight_distance"), class: "btn" %> <!-- filtrer prix croissant -->
   <%= link_to "Price per day", drones_path(sort_by: "price_per_day"), class: "btn" %>
 </div>
 
@@ -26,21 +26,13 @@
       <img src="https://i.ibb.co/fVT07rHk/449759-240716-1519-location-autre-src.jpg" alt="<%= drone.name %>">
       <h3><%= drone.name %></h3>
       <p><%= drone.description %></p>
-<<<<<<< HEAD
-     <p>Stability rating:<span class="star"><%=display_rating(drone.stability_rating)%></p>
-     <p>Range rating:<span class="star"><%=display_rating(drone.range_rating)%></p>
-     <p>Camera quality rating:<span class="star"> <%=display_rating(drone.camera_quality_rating)%></p>
+     <p>Flight Time: <%= drone.flight_time %></p>
+     <p>Max Altitude: <%= drone.max_altitude %></p>
+     <p>Max Wind Resistance: <%= drone.max_wind_resistance %></p>
+     <p>Max Camera Resolution: <%= drone.max_resolution %></p>
+     <p>Max Flight Distance: <%= drone.max_flight_distance %></p>
      <p>Price per day: <%= drone.price_per_day%></p>
-     <strong><p>Price for lease: <%=drone.price_for_lease%></strong></p>
      <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
-=======
-     <p>Stability rating: <span class="star"><%=display_rating(drone.stability_rating)%>
-     <p>Range rating: <span class="star"><%=display_rating(drone.range_rating)%>
-     <p>Camera quality rating: <span class="star"> <%=display_rating(drone.camera_quality_rating)%>
-     <p>Autonomy rating: <span class="star"> <%=display_rating(drone.autonomy_rating)%>
-     <p>Price per day: <%= drone.price_per_day%>
-     <strong><p>Price for lease: <%=drone.price_for_lease%></strong>
->>>>>>> master
     </div>
   <% end %>
 </div>
