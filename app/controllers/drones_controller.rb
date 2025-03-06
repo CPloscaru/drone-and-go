@@ -42,6 +42,7 @@ class DronesController < ApplicationController
 
   private
 
+
   def drone_params
     params.require(:drone).permit(:name,
                                   :description,
