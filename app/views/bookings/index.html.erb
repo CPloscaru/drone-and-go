@@ -1,6 +1,7 @@
 <div class="container">
   <div class="container">
     <h1><%= @user.name %>'s bookings</h1>
+    <% if @customer_bookings.any? %>
     <p>Please find below all the reservation you made</p>
     <div class="table-responsive mt-3">
       <table class="table">
@@ -21,16 +22,21 @@
               <td><%= booking.ending_date %></td>
               <td>Pending</td>
               <td><%= booking.total_price %></td>
-              <td><%= link_to "Review", drone_path(booking.drone_id) %></td>
-
+              <td><%= link_to "Resume", drone_path(booking.drone_id) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+           <% else %>
+            <p>No bookings available at the moment.</p>
+           <% end %>
   </div>
+
+
   <div class="container">
     <h1><%= @user.name %>'s drones rent tracking</h1>
+     <% if @customer_bookings.any? %>
     <p>Please find below all the reservation made for yours drones</p>
     <div class="table-responsive mt-3">
       <table class="table mt-3">
@@ -56,5 +62,8 @@
         </tbody>
       </table>
     </div>
+          <% else %>
+            <p>Actually u don't have any rent</p>
+          <% end %>
   </div>
 </div>

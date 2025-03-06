@@ -27,35 +27,35 @@
 
           <div class="card-body">
             <ul>
-              <li style="text-align: left">Autonomy: <%=(@drone.flight_time)%>
+              <li style="text-align: left">Autonomy: <%=(@drone.flight_time)%> Hours
               </li>
             </ul>
           </div>
 
           <div class="card-body">
             <ul>
-              <li style="text-align: left">Max Altitude: <%=(@drone.max_altitude)%>
+              <li style="text-align: left">Max Altitude: <%=(@drone.max_altitude)%> Meters
               </li>
             </ul>
           </div>
 
           <div class="card-body">
             <ul>
-              <li style="text-align: left">Wind Resistance: <%=(@drone.max_wind_resistance)%>
+              <li style="text-align: left">Wind Resistance: <%=(@drone.max_wind_resistance)%> Km/h
               </li>
             </ul>
           </div>
 
           <div class="card-body">
             <ul>
-              <li style="text-align: left">Flight Distance: <%=(@drone.max_flight_distance)%>
+              <li style="text-align: left">Flight Distance: <%=(@drone.max_flight_distance)%> Meters
               </li>
             </ul>
           </div>
 
           <div class="card-body">
             <ul>
-              <li style="text-align: left">Resolution <%=(@drone.max_resolution)%>
+              <li style="text-align: left">Resolution <%=(@drone.max_resolution)%> Mega Px
               </li>
             </ul>
           </div>
@@ -67,8 +67,8 @@
           <div class="card-header">
             <h5>Réservation</h5>
             <!-- CALENDRIER -->
-            <%= render "bookings/form" %>
-
+              <%= render "bookings/form"%>
+            </div>
          </div>
         </div>
       </div>
