@@ -18,5 +18,4 @@ class Drone < ApplicationRecord
     empty_star = "☆"
     full_star * rating + empty_star * (5 - rating)
   end
-
 end
