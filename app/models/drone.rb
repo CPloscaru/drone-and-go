@@ -1,6 +1,7 @@
 class Drone < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: :"owner_id", required: true
   has_many :drone_reviews
+  has_one_attached :photo
 
   validates_associated :owner
   validates :description, length: { minimum: 12}
