@@ -4,14 +4,12 @@ class CreateDrones < ActiveRecord::Migration[7.1]
       t.references :owner, null: false, foreign_key: {to_table: :users}
       t.string :name
       t.text :description
-      t.string :category
       t.integer :price_per_day
-      t.integer :price_for_lease
-      t.float :autonomy_rating
-      t.float :stability_rating
-      t.float :camera_quality_rating
-      t.float :range_rating
-
+      t.float :flight_time
+      t.float :max_altitude
+      t.float :max_wind_resistance
+      t.float :max_resolution
+      t.float :max_flight_distance
       t.timestamps
     end
   end
