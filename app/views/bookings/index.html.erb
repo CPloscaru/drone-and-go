@@ -21,6 +21,8 @@
               <td><%= booking.ending_date %></td>
               <td>Pending</td>
               <td><%= booking.total_price %></td>
+              <td><%= link_to "Review", drone_path(booking.drone_id) %></td>
+
             </tr>
           <% end %>
         </tbody>
