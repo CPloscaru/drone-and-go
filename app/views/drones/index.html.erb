@@ -1,11 +1,14 @@
 <!-- Logo -->
 <body>
-
   <!-- NavBar -->
 <div style="height: 20px;"></div>
 <div style="padding: 20px;">
 
-
+<div class="row">
+  <div class="col-6">
+    <%= render "slider", maximum: @price_per_day_max, median:@price_per_day_median %>
+  </div>
+</div>
 <!-- Buttons -->
 <div id="myBtnContainer">
   <%= link_to "Flight Time", drones_path(sort_by: "flight_time"), class: "btn" %>
@@ -15,7 +18,6 @@
   <%= link_to "Max Flight Distance", drones_path(sort_by: "max_flight_distance"), class: "btn" %> <!-- filtrer prix croissant -->
   <%= link_to "Price per day", drones_path(sort_by: "price_per_day"), class: "btn" %>
 </div>
-
 <!-- Espacement -->
 <div style="height: 20px;"></div>
 <div style="padding: 20px;">
@@ -41,3 +43,5 @@
     </div>
   <% end %>
 </div>
+
+

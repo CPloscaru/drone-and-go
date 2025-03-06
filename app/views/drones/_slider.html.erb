@@ -1,0 +1,15 @@
+<div class="range-slider" data-controller="slider">
+  <div class="row flex-row">
+    <div class="col-2">
+      <span class="pr-3">Price: </span>
+    </div>
+    <div class="col-8">
+      <%= form_with url: drones_path, method: :get, data: { turbo_frame: "drones", slider_target: "form" } do %>
+          <input id="max_price" class="range-slider__range" type="range" data-slider-target="sliderValue" data-action="change->slider#fire" value="<%= median %>" min="0" max="<%= maximum %>">
+      <% end %>
+    </div>
+    <div class="col-2">
+      <span class="range-slider__value" data-slider-target="price"><%= median %> €</span>
+    </div>
+  </div>
+</div>

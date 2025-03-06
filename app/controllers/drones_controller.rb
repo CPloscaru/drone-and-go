@@ -19,6 +19,18 @@ class DronesController < ApplicationController
         @drones = @drones.order(price_per_day: :asc)
       end
     end
+
+    if params[:max_price].present?
+      raise
+    end
+    
+    respond_to do |format|
+      format.html # Requête normale
+      format.turbo_stream # Turbo mettra à jour la liste
+    end
+
+    @price_per_day_max = 50
+    @price_per_day_median = 15
   end
 
   def new
