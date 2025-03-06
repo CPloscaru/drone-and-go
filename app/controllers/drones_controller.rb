@@ -3,23 +3,25 @@ class DronesController < ApplicationController
 
   def index
     @drones = Drone.all
-    if params[:sort_by]
-      case params[:sort_by]
-      when "flight_time"
-        @drones = @drones.order(flight_time: :asc)
-      when "max_altitude"
-        @drones = @drones.order(max_altitude: :asc)
-      when "max_wind_resistance"
-        @drones = @drones.order(max_wind_resistance: :asc)
-      when "max_resolution"
-        @drones = @drones.order(max_resolution: :asc)
-      when "max_flight_distance"
-        @drones = @drones.order(max_flight_distance: :asc)
-      when "price_per_day"
-        @drones = @drones.order(price_per_day: :asc)
-      end
+    sort_by = params[:sort_by]
+    order = params[:order] || "desc" #tri décroissant
+
+    # Inverser l'ordre
+    if sort_by == session[:last_sort_by]
+      order = (order == "desc") ? "asc" : "desc"
+    else
+      order = "desc" # Reset apres
     end
-  end
+
+    # Enregistrer le dernier critère de tri dans la session
+    session[:last_sort_by] = sort_by
+
+    # tri
+    if sort_by.present?
+      @drones = @drones.order("#{sort_by} #{order}")
+    end
+    end
+
 
   def new
     @drone = Drone.new
