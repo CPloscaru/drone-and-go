@@ -1,11 +1,14 @@
 <!-- Logo -->
 <body>
-
   <!-- NavBar -->
 <div style="height: 20px;"></div>
 <div style="padding: 20px;">
 
-
+<div class="row">
+  <div class="col-6">
+    <%= render "slider", maximum: @price_per_day_max, median:@price_per_day_median %>
+  </div>
+</div>
 <!-- Buttons -->
 <div id="myBtnContainer">
    <%= link_to "Flight Time #{params[:sort_by] == 'flight_time' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "flight_time", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-primary btn-lg", role: "button", "aria-pressed": "true", id: "flight_time_button" %>
@@ -15,7 +18,6 @@
    <%= link_to "Max Flight Distance #{params[:sort_by] == 'max_flight_distance' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "max_flight_distance", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-primary btn-lg ", role: "button", "aria-pressed": "true", id: "max_flight_distance" %><!-- filtrer prix croissant -->
   <%= link_to "Price per Day #{params[:sort_by] == 'price_per_day' && params[:order] == 'desc' ? '⬆' : '⬇'}", drones_path(sort_by: "price_per_day", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-primary btn-lg ", role: "button", "aria-pressed": "true", id: "price_per_day_button" %>
 </div>
-
 <!-- Espacement -->
 <div style="height: 20px;"></div>
 <div style="padding: 20px;">
@@ -41,3 +43,5 @@
     </div>
   <% end %>
 </div>
+
+
