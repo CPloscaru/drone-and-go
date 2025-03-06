@@ -42,3 +42,14 @@
 .ms-3 {
   margin-left: 1rem;
 }
+
+.navbar-brand.mx-auto {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-brand-logo img{
+  height: 40px;
+  width: 300px;
+}
