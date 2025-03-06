@@ -10,6 +10,15 @@
 
 require "faker"
 
+urls = [
+  "https://images.unsplash.com/photo-1524143986875-3b098d78b363?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRyb25lfGVufDB8fDB8fHww",
+  "https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZHJvbmV8ZW58MHx8MHx8fDA%3D",
+  "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRyb25lfGVufDB8fDB8fHww",
+  "https://images.unsplash.com/photo-1469313785555-277fa0c1dc9e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGRyb25lfGVufDB8fDB8fHww",
+  "https://images.unsplash.com/photo-1520870121499-7dddb6ccbcde?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRyb25lfGVufDB8fDB8fHww",
+  "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGRyb25lfGVufDB8fDB8fHww"
+]
+
 puts "Create 4 users (Yann, David, Jeremy, Calin)"
 User.create!(email: "davidb@gmail.com", password: "123456", name: "David", last_name:"Bellot")
 User.create!(email: "yannb@gmail.com", password: "123456", name: "Yann", last_name:"Boiteau")
@@ -27,9 +36,11 @@ puts "Create 10 drones..."
     max_altitude: Faker::Drone.max_altitude,
     max_wind_resistance: Faker::Drone.max_wind_resistance,
     max_resolution: Faker::Drone.max_resolution,
-    max_flight_distance:Faker::Drone.max_flight_distance
+    max_flight_distance:Faker::Drone.max_flight_distance,
+    photo_url: urls.sample
   )
   drone.owner = User.all.sample
+  # drone.photo.attach(io: URI.parse(urls.sample).open, filename: "#{drone.name}_#{rand(10)}", content_type: "image/png")
   drone.save
 end
 
@@ -44,9 +55,10 @@ drone = Drone.new(
   max_altitude: Faker::Drone.max_altitude,
   max_wind_resistance: Faker::Drone.max_wind_resistance,
   max_resolution: Faker::Drone.max_resolution,
-  max_flight_distance:Faker::Drone.max_flight_distance
+  max_flight_distance:Faker::Drone.max_flight_distance,
+  photo_url: urls.sample
 )
-
+# drone.photo.attach(io: URI.parse(urls.sample).open, filename: "#{drone.name}_#{rand(10)}", content_type: "image/png")
 drone.owner = User.last
 drone.save
 
