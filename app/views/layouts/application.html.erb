@@ -22,15 +22,16 @@
   <body>
 
     <%= render "layouts/navbar" %>
+        <% flash.each do |key, message| %>
+      <div class="flash <%= key %>">
+        <%= message %>
+      </div>
+    <% end %>
 
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-<% flash.each do |key, message| %>
-  <div class="flash <%= key %>">
-    <%= message %>
-  </div>
-<% end %>
+
 
   </body>
 </html>

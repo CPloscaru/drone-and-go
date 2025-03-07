@@ -18,7 +18,14 @@
 
     <!-- Buttons -->
       <div class="col-12 mt-3 mb-5">
-        <%= link_to "Flight Time #{params[:sort_by] == 'flight_time' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "flight_time", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-outline-primary btn-lg", role: "button", "aria-pressed": "true", id: "flight_time_button" %>
+        <%= link_to "Flight Time #{params[:sort_by] == 'flight_time' && params[:order] == 'asc' ? '⬇' : '⬆'}",
+                drones_path(sort_by: "flight_time",
+                order: params[:order] == "asc" ? "desc" : "asc"),
+                class: "btn btn-outline-primary btn-lg",
+                role: "button", "aria-pressed": "true",
+                id: "flight_time_button",
+                data: { action: "click->scroll#autoscroll" }
+        %>
         <%= link_to "Max Altitude #{params[:sort_by] == 'max_altitude' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "max_altitude", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-outline-primary btn-lg", role: "button", "aria-pressed": "true", id: "max_altitude_button" %>
         <%= link_to "Max Wind Resistance #{params[:sort_by] == 'max_wind_resistance' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "max_wind_resistance", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-outline-primary btn-lg", role: "button", "aria-pressed": "true", id: "max_wind_resistance_button" %>
         <%= link_to "Max Resolution Button #{params[:sort_by] == 'max_resolution' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "max_resolution", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-outline-primary btn-lg ", role: "button", "aria-pressed": "true", id: "max_resolution_button" %>
