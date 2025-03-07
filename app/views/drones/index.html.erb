@@ -16,7 +16,7 @@
 
   <div class="row">
 
-  <!-- Buttons -->
+   <!-- Buttons -->
     <div class="col-12 mt-3 mb-5">
       <%= link_to "Flight Time #{params[:sort_by] == 'flight_time' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "flight_time", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-primary btn-lg", role: "button", "aria-pressed": "true", id: "flight_time_button" %>
       <%= link_to "Max Altitude #{params[:sort_by] == 'max_altitude' && params[:order] == 'asc' ? '⬇' : '⬆'}", drones_path(sort_by: "max_altitude", order: params[:order] == "asc" ? "desc" : "asc"), class: "btn btn-primary btn-lg", role: "button", "aria-pressed": "true", id: "max_altitude_button" %>
@@ -29,29 +29,31 @@
     <%# <div class="col-12 mt-3 mb-5 mx-3">
       <%# <%= render "slider", maximum: @price_per_day_max, median:@price_per_day_median %>
     <%# </div>  %>
-  <!-- Espacement -->
+   <!-- Espacement -->
 
-    <div class="cards">
-      <% @drones.each do |drone| %>
-        <div class="drone">
-          <% if drone.photo.attached? %>
-            <img src=<%= drone.photo.url %>  alt= <%= drone.photo.name %> >
-          <% else %>
-            <img src=<%= drone.photo_url %>  alt= <%= drone.photo.name %> >
-          <% end %>
-          <%# <%= cl_image_tag drone.photo.key, height: 300, width: 400, crop: :fill %>
-          <h3><%= drone.name %></h3>
-          <p><%= drone.description %></p>
-        <p>Flight Time: <%= drone.flight_time %>min</p>
-        <p>Max Altitude: <%= drone.max_altitude %>m</p>
-        <p>Max Wind Resistance: <%= drone.max_wind_resistance %></p>
-        <p>Max Camera Resolution: <%= drone.max_resolution %></p>
-        <p>Max Flight Distance: <%= drone.max_flight_distance %>m</p>
-        <strong><p>Price per day: <%= number_to_currency(drone.price_per_day, unit: "€", separator: ",", delimiter: " ", precision: 2, format: "%n %u") %></p></strong>
-        <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
+  <div class="cards">
+    <% @drones.each do |drone| %>
+      <div class="drone">
+        <% if drone.photo.attached? %>
+          <img src="<%= drone.photo.url %>" alt="<%= drone.photo.name %>">
+        <% else %>
+          <img src="<%= drone.photo_url %>" alt="<%= drone.photo.name %>">
+        <% end %>
+        <h3><%= drone.name %></h3>
+          <p>Price per day:<strong> <%= number_to_currency(drone.price_per_day, unit: "€", separator: ",", delimiter: " ", precision: 2, format: "%n %u") %></strong></p>
+        <div class="info">
+          <p>"<%= drone.description %>"</p>
+          <p>Flight Time: <%= drone.flight_time %> min</p>
+          <p>Max Altitude: <%= drone.max_altitude %> m</p>
+          <p>Max Wind Resistance: <%= drone.max_wind_resistance %></p>
+          <p>Max Camera Resolution: <%= drone.max_resolution %></p>
+          <p>Max Flight Distance: <%= drone.max_flight_distance %> m</p>
+          <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
+
 
     <div class="temp">
       <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank">
