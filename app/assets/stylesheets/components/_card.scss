@@ -82,9 +82,12 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 8px;
 }
 
+.index-container {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

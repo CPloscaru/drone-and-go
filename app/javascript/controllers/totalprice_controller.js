@@ -18,7 +18,7 @@ export default class extends Controller {
       const priceday = parseFloat(this.pricedayTarget.innerText)
       this.totalTarget.innerText = nbDays * priceday
      } else {
-      this.totalTarget.innerText = "-"
+      this.totalTarget.innerText = "- "
     }
   }
 
@@ -33,7 +33,7 @@ export default class extends Controller {
       const priceday = parseFloat(this.pricedayTarget.innerText)
       this.totalTarget.innerText = nbDays * priceday
      } else {
-      this.totalTarget.innerText = "-"
+      this.totalTarget.innerText = "- "
     }
   }
 }
