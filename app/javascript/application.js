@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
 document.addEventListener("DOMContentLoaded", function () {
   // Fonction pour basculer le texte du bouton
   function toggleButtonText(buttonId, defaultText, alternateText) {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-    
+
   }
 
   // Appliquer la fonction à chaque bouton
