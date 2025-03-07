@@ -1,0 +1,81 @@
+.video-container {
+  height: 750px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+
+.text-container {
+  position: relative;
+  font-size: 4rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px; 
+  color: white;
+}
+
+
+.line {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.line1 {
+    width: 0;
+    border-right: 3px solid white;
+    padding-right: 5px;
+    animation: typing1 2.5s steps(20, end) forwards, removeCursor 0.1s forwards 2.5s;
+}
+
+
+.line2 {
+    width: 0;
+    padding-right: 5px;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards 2.5s, typing2 2.5s steps(22, end) forwards 2.6s, removeCursor 0.1s forwards 5.1s;
+}
+
+
+@keyframes typing1 {
+    from { width: 0 }
+    to { width: 20ch; }
+}
+
+@keyframes typing2 {
+    from { width: 0; border-right: 3px solid white; }
+    to { width: 22ch; border-right: 3px solid white; }
+}
+
+
+@keyframes removeCursor {
+    to { border-right: none; }
+}
+
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
