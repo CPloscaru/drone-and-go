@@ -1,46 +1,94 @@
-.drone-list {
+.drone {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 24rem;
+  border-radius: 20% 20% / 20% 20%;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(148, 147, 147, 0.8);
+  backdrop-filter: blur(0%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px 5px rgba(0, 0, 0, 0.2);
+    background-color: #646566;
+    backdrop-filter: blur(10px);
+  }
+
+  &:hover .info {
+    opacity: 1;
+    max-height: 300px;
+    padding: 15px;
+  }
 }
 
-.drone {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-}
 
 .drone img {
-  border-radius: 10px;
-  max-width: 80%;
+  border-radius: 50% 20% / 10% 40%;
+  width: 100%;
   height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .drone h3 {
-  font-size: 1.5em;
+  font-family: 'Syne Mono';
+  font-size: 1.75em;
+  font-weight: bold;
   margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
 .drone p {
-  font-size: 1em;
-  color: #555;
+  font-family: 'Audiowide';
 }
+
+.info {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info p {
+  margin: 5px;
+  font-family: 'Audiowide';
+}
+
 
 .drone .btn {
   background-color: #007bff;
-  color: #fff;
-  padding: 10px 15px;
+  color: #ffffff;
+  padding: 5px 10px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 50% 20% / 10% 40%;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .drone .btn:hover {
   background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+
+.drone {
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  &:hover h3 {
+    color: #007bff;
+  }
 }
