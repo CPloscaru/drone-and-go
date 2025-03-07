@@ -41,11 +41,14 @@ class DronesController < ApplicationController
   def show
     @drone = Drone.find(params[:id])
     @booking = Booking.new
+    if @drone.photo.attached?
+      @url = @drone.photo.url
+    else
+      @url = @drone.photo_url
+    end
   end
 
   private
-
-
   def drone_params
     params.require(:drone).permit(:name,
                                   :description,
