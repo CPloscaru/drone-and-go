@@ -1,35 +1,55 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8">
-      <h2>Sign up</h2>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mt-5 shadow">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4">Sign up</h2>
 
-        <div class="form-inputs">
-          <%= f.input :name,
-                      required: true,
-                      autofocus: true %>
-          <%= f.input :last_name,
-                      required: true
-                      %>
-          <%= f.input :email,
-                      required: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "needs-validation", novalidate: true }) do |f| %>
+
+            <div class="mb-3">
+              <%= f.label :email, class: "form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
+              <div class="invalid-feedback">
+                Please enter valid email.
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+              <%= f.label :password, class: "form-label" %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true %>
+              <div class="invalid-feedback">
+                Please enter a password.
+              </div>
+              <% if @minimum_password_length %>
+                <small class="form-text text-muted">
+                  (<%= @minimum_password_length %>)
+                </small>
+              <% end %>
+            </div>
+
+
+            <div class="mb-3">
+              <%= f.label :password_confirmation, class: "form-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true %>
+              <div class="invalid-feedback">
+                Confirm password.
+              </div>
+            </div>
+
+
+            <div class="d-grid">
+              <%= f.submit "S'inscrire", class: "btn btn-primary btn-lg" %>
+            </div>
+          <% end %>
+
+
+          <div class="mt-3 text-center">
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary mb-3" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

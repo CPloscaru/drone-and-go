@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
+    
   }
 
   // Appliquer la fonction à chaque bouton

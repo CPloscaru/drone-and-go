@@ -51,6 +51,17 @@
         <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
         </div>
       <% end %>
+
+      <%# <%= cl_image_tag drone.photo.key, height: 300, width: 400, crop: :fill %>
+      <h3><%= drone.name %></h3>
+      <p><%= drone.description %></p>
+     <p>Flight Time: <%= drone.flight_time %>min</p>
+     <p>Max Altitude: <%= drone.max_altitude %>m</p>
+     <p>Max Wind Resistance: <%= drone.max_wind_resistance %></p>
+     <p>Max Camera Resolution: <%= drone.max_resolution %></p>
+     <p>Max Flight Distance: <%= drone.max_flight_distance %>m</p>
+    <strong><p>Price per day: <%= number_to_currency(drone.price_per_day, unit: "€", separator: ",", delimiter: " ", precision: 2, format:"%n%u")%></p></strong>
+     <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
     </div>
 
   </div>
