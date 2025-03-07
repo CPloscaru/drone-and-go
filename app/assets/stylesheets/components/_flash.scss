@@ -1,0 +1,21 @@
+.flash {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.flash.notice {
+  background-color: #e7f7e7; /* Vert clair pour le succès */
+  color: #4caf50; /* Vert pour le texte */
+}
+
+.flash.alert {
+  background-color: #fff3cd; /* Jaune clair pour l'avertissement */
+  color: #856404; /* Jaune foncé pour le texte */
+}
+
+.flash.error {
+  background-color: #f8d7da; /* Rouge clair pour l'erreur */
+  color: #721c24; /* Rouge foncé pour le texte */
+}
