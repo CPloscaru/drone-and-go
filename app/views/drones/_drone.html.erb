@@ -1,8 +1,20 @@
-<% drones.each do |drone| %>
-  <div class="drone-item">
-    <h3><%= drone.name %></h3>
-    <p>Flight Time: <%= drone.flight_time %></p>
-    <p>Price: <%= drone.price %></p>
+<div class = "card-drone">
+  <% if drone.photo.attached? %>
+    <img src="<%= drone.photo.url %>" alt="<%= drone.photo.name %>">
+  <% else %>
+    <img src="<%= drone.photo_url %>" alt="<%= drone.photo.name %>">
+  <% end %>
+  <div class="card-drone-content">
+    <h2>
+      <%= drone.name %> <br>
+      <strong><span class="cprice"><%= drone.price_per_day %> € / day </span></strong>
+    </h2>
+    <p>
+      <%= drone.description %>
+    </p>
+    <span class="card-material-symbols-outlined">
+      <%= link_to "Find out more ->", drone_path(drone) %>
+    </span>
   </div>
-<% end %>
+</div>
 
