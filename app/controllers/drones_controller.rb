@@ -13,16 +13,23 @@ class DronesController < ApplicationController
       order = "desc" # Reset apres
     end
 
-     @price_per_day_max = 50
-     @price_per_day_median = 15
     # Enregistrer le dernier critère de tri dans la session
-     session[:last_sort_by] = sort_by
+    session[:last_sort_by] = sort_by
 
     # tri
-     if sort_by.present?
-       @drones = @drones.order("#{sort_by} #{order}")
-     end
-   end
+    if sort_by.present?
+      @drones = @drones.order("#{sort_by} #{order}")
+    end
+    @drones = Drone.order("#{params[:sort_by]} #{params[:order]}")
+
+
+   #respond_to do |format|
+    # format.html # Charge la page entière (HTML)
+    #format.turbo_stream do # Répond aux requêtes Turbo Streams (AJAX)
+     # render turbo_stream: turbo_stream.replace("drones-list", partial: "drones", locals: { drones: @drones })
+      #end
+   # end
+  end
 
   def new
     @drone = Drone.new
@@ -41,14 +48,10 @@ class DronesController < ApplicationController
   def show
     @drone = Drone.find(params[:id])
     @booking = Booking.new
-    if @drone.photo.attached?
-      @url = @drone.photo.url
-    else
-      @url = @drone.photo_url
-    end
   end
 
   private
+
   def drone_params
     params.require(:drone).permit(:name,
                                   :description,
