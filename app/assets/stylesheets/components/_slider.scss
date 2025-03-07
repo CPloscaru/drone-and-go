@@ -7,7 +7,11 @@ $teal: #1abc9c !default;
   margin: 10px 0 0 0;
 }
 
-
+.price {
+  font-size: 1rem;
+  color:white;
+  font-weight: 700;
+}
 // Range Slider
 $range-width: 100% !default;
 

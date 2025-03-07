@@ -1,7 +1,7 @@
 <div class="range-slider" data-controller="slider">
   <div class="row flex-row">
     <div class="col-2">
-      <span class="pr-3">Price: </span>
+      <span class="price">Price: </span>
     </div>
     <div class="col-8">
       <%= form_with url: drones_path, method: :get, data: { turbo_frame: "drones", slider_target: "form" } do %>
