@@ -15,7 +15,9 @@
   <body>
 
     <%= render "layouts/navbar" %>
-    <!-- <p class="notice"><%= notice %></p> -->
+
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 <% flash.each do |key, message| %>
   <div class="flash <%= key %>">
@@ -23,6 +25,5 @@
   </div>
 <% end %>
 
-    <%= yield %>
   </body>
 </html>

@@ -1,0 +1,80 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-product-infos {
+
+  overflow: hidden;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  padding: 10px;
+
+  h2 {
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+  span {
+    font-size: 24px;
+  }
+}
+
+.drone-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 0 0 10px 0;
+
+  span {
+    font-size: 32px;
+  }
+}
+
+.card-height-control {
+  height: 800px;
+}
+
+.booking {
+  padding: 10px;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px 0 0 0;
+
+  h5 {
+    font-weight:bord;
+    font-size: 32px;
+  }
+}
+
+.total {
+  font-size: 32px;
+}

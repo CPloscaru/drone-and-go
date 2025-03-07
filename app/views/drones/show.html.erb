@@ -1,83 +1,37 @@
 
-<div class="container">
-  <div class="row justify-content-center">
-
-    <div class="col-8">
-      <div class="card" >
-        <%= image_tag "drone.png" %>
-        <div class="card-body">
-          <h5 class="card-title">Drone Name : <%= @drone.name %></h5>
-          <p class="card-text">Description : <%= @drone.description %></p>
+<div class="container mt-5" data-controller="totalprice">
+  <div class="row">
+    <div class="col-8 card-height-control">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @url %>)">
         </div>
-      </div>
+        <div class="card-product-infos">
+          <h1><%= @drone.name %></h1>
+          <h2><strong>Owner: </strong><%= @drone.owner.name %>  <%= @drone.owner.last_name %></h2>
+          <h2><strong>Description: </strong></h2>
+          <p><%= @drone.description %></p>
+        </div>
     </div>
 
-    <div class="col-4">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <div style="text-align: center;">
-              <h5 class="card-title">Price per day: <%= @drone.price_per_day  %>€</h5>
-
-            </div>
-          </div>
-
-
-<!-- a modifier -->
-
-          <div class="card-body">
-            <ul>
-              <li style="text-align: left">Autonomy: <%=(@drone.flight_time)%>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-body">
-            <ul>
-              <li style="text-align: left">Max Altitude: <%=(@drone.max_altitude)%>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-body">
-            <ul>
-              <li style="text-align: left">Wind Resistance: <%=(@drone.max_wind_resistance)%>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-body">
-            <ul>
-              <li style="text-align: left">Flight Distance: <%=(@drone.max_flight_distance)%>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-body">
-            <ul>
-              <li style="text-align: left">Resolution <%=(@drone.max_resolution)%>
-              </li>
-            </ul>
-          </div>
-
-        </div>
+    <div class="col-4 align-items-stretch card-height-control">
+      <div class="drone-price">
+        Price Per Day <span><strong data-totalprice-target="priceday"><%= @drone.price_per_day %></strong> €</span>
       </div>
-      <div class="col-12">
-        <div class="card" >
-          <div class="card-header">
-            <h5>Réservation</h5>
+      <div id="drone-caracs" class="card-product-infos">
+        <h2><strong>Drone characteristics</strong></h2>
+        <ul>
+          <li>Flight Time (minutes)    : <%= @drone.flight_time %></li>
+          <li>Max Altitude (m)         : <%= @drone.max_altitude %></li>
+          <li>Max Wind Resistance (m/s): <%= @drone.max_wind_resistance %></li>
+          <li>Max Resolution (Mpx)     : <%= @drone.max_resolution %></li>
+          <li>Max Flight Distance (m)  : <%= @drone.max_flight_distance %></li>
+        </ul>
+      </div>
+      <div class="booking">
+        <h5>Réservation</h5>
             <!-- CALENDRIER -->
-            <%= render "bookings/form" %>
-
-         </div>
-        </div>
+        <%= render "bookings/form"%>
       </div>
     </div>
-
-    <!-- Carte loc -->
 
   </div>
-
-
-
 </div>
