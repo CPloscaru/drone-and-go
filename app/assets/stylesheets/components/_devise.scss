@@ -1,0 +1,20 @@
+/* app/assets/stylesheets/devise.scss */
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  &:hover {
+    background-color: darken(#0d6efd, 10%);
+  }
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #dc3545;
+}

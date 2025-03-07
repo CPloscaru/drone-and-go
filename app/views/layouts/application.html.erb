@@ -9,13 +9,19 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
 
     <%= render "layouts/navbar" %>
-    <p class="notice"><%= notice %></p>
+    <!-- <p class="notice"><%= notice %></p> -->
     <p class="alert"><%= alert %></p>
+<% flash.each do |key, message| %>
+  <div class="flash <%= key %>">
+    <%= message %>
+  </div>
+<% end %>
 
     <%= yield %>
   </body>

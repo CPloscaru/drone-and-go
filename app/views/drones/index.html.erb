@@ -36,7 +36,7 @@
      <p>Max Wind Resistance: <%= drone.max_wind_resistance %></p>
      <p>Max Camera Resolution: <%= drone.max_resolution %></p>
      <p>Max Flight Distance: <%= drone.max_flight_distance %>m</p>
-    <strong><p>Price per day: <%= number_to_currency(drone.price_per_day, unit: "€", separator: ",", delimiter: " ", precision: 2, format: "%n %u") %></p></strong>
+    <strong><p>Price per day: <%= number_to_currency(drone.price_per_day, unit: "€", separator: ",", delimiter: " ", precision: 2, format:"%n%u")%></p></strong>
      <%= link_to "More details", drone_path(drone), class: "btn btn-flat" %>
     </div>
   <% end %>
